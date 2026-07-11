@@ -1,29 +1,21 @@
-import mal_readline
-
-
-def read(source: str) -> str:
+def READ(source: str) -> str:
     return source
 
 
-def eval_(ast: str) -> str:
+def EVAL(ast: str) -> str:
     return ast
 
 
-def print_(form: str) -> str:
+def PRINT(form: str) -> str:
     return form
 
 
 def rep(source: str) -> str:
-    return print_(eval_(read(source)))
-
-
-def main() -> None:
-    while True:
-        try:
-            print(rep(mal_readline.input_('user> ')))
-        except EOFError:
-            break
-
+    return PRINT(EVAL(READ(source)))
 
 if __name__ == '__main__':
-    main()
+    while True:
+        try:
+            print(rep(input('user> ')))
+        except EOFError:
+            break
